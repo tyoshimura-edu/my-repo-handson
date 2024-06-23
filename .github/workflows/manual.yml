@@ -1,0 +1,15 @@
+name: Manual                    #ワークフロー名
+on:
+  workflow_dispatch:  #手動実行イベント
+    inputs: #入力パラメータの定義
+      greeting: #入力パラメータの名前
+        type: string # データ型
+        default: Hello # 入力パラメータのデフォルト値
+        required: true # 入力パラメータの必須指定
+        description: A cheerfil word # 入力パラメータの概要
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{inputs.greeting}}" #入力パラメータ「greetings」の参照
+      
